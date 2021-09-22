@@ -1,0 +1,7 @@
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/install/strip.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/install/local.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/pdi_deisa_plugin.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/install.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/edit_cache.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/rebuild_cache.dir
+/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/CMakeFiles/list_install_components.dir

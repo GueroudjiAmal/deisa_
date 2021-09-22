@@ -1,0 +1,1 @@
+/local/home/ag262995/PDI/pdi-1.3.0/build/staging/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so
