@@ -31,9 +31,6 @@ def init(sched_file, rank, size, arrays, deisa_arrays_dtype):
     client = connect(sched_file)
     return Bridge(client, size, rank, arrays, deisa_arrays_dtype)
 
-def publish_data(data, timestep):
-    print("time_step", timestep)
-
 class Bridge:
     workers = []
     def __init__(self, Client, Ssize, rank, arrays, deisa_arrays_dtype):
@@ -46,44 +43,22 @@ class Bridge:
             k = len(listw)//Ssize # more workers than processes
             self.workers = listw[rank*k:rank*k+ k]
         self.arrays = arrays
+
         for ele in self.arrays:
             self.arrays[ele]["dtype"] = str(deisa_arrays_dtype[ele])
-            self.position = np.array(self.arrays[ele]["starts"])//np.array(self.arrays[ele]["sizes"])
+            self.arrays[ele]["timedim"] = self.arrays[ele]["timedim"][0]
+            self.position = [self.arrays[ele]["starts"][i]//self.arrays[ele]["subsizes"][i] for i in range(len(np.array(self.arrays[ele]["sizes"])))]
             print(self.rank, self.position)
         Variable("Arrays").set(arrays)
-        print("init done")
 
-    def publish_data(slf, data, timestep):
-        print("time_step", timestep)
+    def create_key(self, timestep, name):
+        self.position[self.arrays[name]["timedim"]]= timestep
+        position = tuple(self.position)
+        return (name, position)
 
-    def publish_data1(self, g, data) :
-        name = "dns" + str(self.rank) + "g" + str(g)
-        index = self.position.tolist()
-        index.append(g.item())
-        ds = metadata(name)
-        ds.data = None
-        ds.index = index
-        ds.shap = data.shape
-        ds.typ = str(data.dtype)
-        tic = time.perf_counter()
-        d_future = self.client.scatter(data, direct = True, workers=self.workers)
-        toc = time.perf_counter()
-        scatter = toc-tic
-        to = time.perf_counter()
-        self.queue.put(dict(ds.__dict__.items()))
-        self.queue.put( d_future)
-        to1 = time.perf_counter()
-        q = to1 -to
-        toc2 = time.perf_counter()
-        publish = toc2-tic2
-        return scatter, publish, q
-
-    def Finalize(self):
-        self.queue.put(1)
-
-
-def Init1(Ssize, rank, pos, gmax):
-    return Bridge(Ssize,rank, pos, gmax)
+    def publish_data(self, data, data_name, timestep):
+        key = self.create_key(timestep, data_name)
+        self.client.scatter(data, direct = True, workers=self.workers)
 
 class CoupleDask :
     adr = ""
@@ -100,7 +75,6 @@ class CoupleDask :
             self.workers = [comm.get_address_host_port(i,strict=False) for i in self.client.scheduler_info()["workers"].keys()]
 
         Variable("workers").set(self.workers)
-        self.queues = [Queue("queue"+str(i)) for i in range(Ssize)]
         self.Ssize = Ssize
         self.arrays = dict()
 
@@ -109,10 +83,9 @@ class CoupleDask :
         self.arrays = Variable("Arrays").get()
         print(self.arrays)
 
-    def Finalization(self):
-        for q in self.queues:
-            q.get()
-        #self.client.shutdown()
+    def create_dask_array(self, array):
+        print("create dask array ")
+
 
 def Initialization(Ssize, Sworker):
     return CoupleDask(Ssize, Sworker)

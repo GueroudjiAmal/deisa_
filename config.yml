@@ -1,9 +1,9 @@
-MaxtimeSteps: 10
+MaxtimeSteps: 1
 global_size:
-  height: 100
-  width: 100
+  height: 10
+  width: 10
 parallelism:
   height: 2
   width: 2
-timestep: 1
-workers: 1
+timestep: 0
+workers: 2

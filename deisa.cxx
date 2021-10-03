@@ -118,7 +118,7 @@ public:
 
 			string deisa_array_name = key_value.first;
 			Datatype_uptr type_uptr = key_value.second->evaluate(context());
-			timedim.emplace_back(key_value.second->attribute("timedim"));
+			timedim.emplace_back(key_value.second->attribute("timedim").to_long(context()));
 			//get info from datatype
 			const Datatype* type = type_uptr.get();
 			while (auto&& array_type = dynamic_cast<const PDI::Array_datatype*>(type)) {
@@ -203,15 +203,16 @@ public:
 		if (!PC_status(map_tree)) {
 			each(map_tree, [&](PC_tree_t key_map, PC_tree_t value_map) {
 				//deisa_map_ins.emplace({to_string(key_map), to_string(value_map)});
-				ctx.callbacks().add_data_callback([&ctx,timestep_exp = time_step ,deisa_array_name = to_string(value_map)](const string&, Ref data_ref){
+				ctx.callbacks().add_data_callback([&ctx, timestep_exp = time_step ,deisa_array_name = to_string(value_map)](const string&, Ref data_ref){
 					// a python context we fill with exposed variables
 					size_t timestep = timestep_exp.to_long(ctx);
 					pydict pyscope = pymod::import("__main__").attr("__dict__");
 					pyscope["pdi"] = pymod::import("pdi");
-					pyscope[deisa_array_name.c_str()] = to_python(data_ref) ;
+					pyscope[deisa_array_name.c_str()] = to_python(data_ref);
 					pyscope["time_step"] = timestep;
+					pyscope["name"] = deisa_array_name.c_str();
 					try {
-						pybind11::exec(fmt::format("from dask_interface import Bridge, publish_data;  bridge.publish_data({},time_step)",deisa_array_name), pyscope);
+						pybind11::exec(fmt::format("from dask_interface import Bridge; bridge.publish_data({},name,time_step)",deisa_array_name), pyscope);
 					} catch ( const std::exception& e ) {
 						cerr << " *** [PDI/Deisa] Error: while publishing data through deisa , caught exception: "<<e.what()<<endl;
 					} catch (...) {
