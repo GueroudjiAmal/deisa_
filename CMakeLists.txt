@@ -30,9 +30,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(pdi_deisa_plugin LANGUAGES C CXX)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-list(APPEND CMAKE_PREFIX_PATH "/local/home/ag262995/PDI/pdi/build/staging/share/pdi/cmake "
-                              "/local/home/ag262995/PDI/pdi/build/PDI/src/PDI_pkg-build"
-															"/local/home/ag262995/PDI/pdi/build/share/pdi/cmake/PDIConfig.cmake")
+
 option(BUILD_INDENT "Enable automatic code indentation" OFF)
 
 #include(CTest)

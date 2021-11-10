@@ -1,8 +1,8 @@
-# Install script for directory: /local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa
+# Install script for directory: /gpfs/workdir/gueroudjia/pdi/plugins/deisa
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/local/home/ag262995/PDI/pdi-1.3.0/build/staging")
+  set(CMAKE_INSTALL_PREFIX "/gpfs/users/gueroudjia/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "1")
+  set(CMAKE_INSTALL_SO_NO_EXE "0")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -38,21 +38,21 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so")
     file(RPATH_CHECK
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0" TYPE MODULE FILES "/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/libpdi_deisa_plugin.so")
-  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so" AND
-     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8" TYPE MODULE FILES "/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/libpdi_deisa_plugin.so")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so")
     file(RPATH_CHANGE
-         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so"
-         OLD_RPATH "/local/home/ag262995/PDI/pdi-1.3.0/build/staging/lib:/usr/lib/x86_64-linux-gnu/openmpi/lib:"
+         FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so"
+         OLD_RPATH "/gpfs/users/gueroudjia/local/lib64:/gpfs/workdir/gueroudjia/.conda/envs/PhDEnv/lib:/gpfs/users/gueroudjia/.conda/envs/PhDEnv/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/pdi/plugins_1.3.0/libpdi_deisa_plugin.so")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so")
     endif()
   endif()
 endif()
@@ -65,5 +65,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/local/home/ag262995/PDI/pdi-1.3.0/plugins/deisa/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
