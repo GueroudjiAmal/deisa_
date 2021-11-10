@@ -1,9 +1,0 @@
-MaxtimeSteps: 1
-global_size:
-  height: 10
-  width: 10
-parallelism:
-  height: 2
-  width: 2
-timestep: 0
-workers: 2
