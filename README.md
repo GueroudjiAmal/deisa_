@@ -1,4 +1,4 @@
-# deisa
+# PDI Deisa Plugin
 
 
 Check https://github.com/pdidev/spack#deisa for spack installation.
