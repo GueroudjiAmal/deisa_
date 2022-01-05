@@ -17,8 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/gpfs/users/gueroudjia/local/include"
   "/gpfs/users/gueroudjia/.conda/envs/PhDEnv/include"
-  "/gpfs/users/gueroudjia/.conda/envs/PhDEnv/include/python3.8"
-  "/gpfs/workdir/gueroudjia/.conda/envs/PhDEnv/include/python3.8"
+  "/gpfs/softs/spack/opt/spack/linux-centos7-cascadelake/gcc-9.2.0/anaconda3-2021.05-iqwuixltaz4o4tspbuo2fgpqpsdsj74q/include/python3.8"
   "/gpfs/softs/spack/opt/spack/linux-centos7-cascadelake/gcc-9.2.0/openmpi-3.1.5-wd3v2cyop6u76gidhz5jvsscl4pqjnkl/include"
   )
 

@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC -fvisibility=hidden   -std=c++14 -fexceptions -pthread -std=gn
 
 CXX_DEFINES = -Dpdi_deisa_plugin_EXPORTS
 
-CXX_INCLUDES = -isystem /gpfs/users/gueroudjia/local/include -isystem /gpfs/users/gueroudjia/.conda/envs/PhDEnv/include -isystem /gpfs/users/gueroudjia/.conda/envs/PhDEnv/include/python3.8 -isystem /gpfs/workdir/gueroudjia/.conda/envs/PhDEnv/include/python3.8 -isystem /gpfs/softs/spack/opt/spack/linux-centos7-cascadelake/gcc-9.2.0/openmpi-3.1.5-wd3v2cyop6u76gidhz5jvsscl4pqjnkl/include 
+CXX_INCLUDES = -isystem /gpfs/users/gueroudjia/local/include -isystem /gpfs/users/gueroudjia/.conda/envs/PhDEnv/include -isystem /gpfs/softs/spack/opt/spack/linux-centos7-cascadelake/gcc-9.2.0/anaconda3-2021.05-iqwuixltaz4o4tspbuo2fgpqpsdsj74q/include/python3.8 -isystem /gpfs/softs/spack/opt/spack/linux-centos7-cascadelake/gcc-9.2.0/openmpi-3.1.5-wd3v2cyop6u76gidhz5jvsscl4pqjnkl/include 
 

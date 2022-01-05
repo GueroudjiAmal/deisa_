@@ -49,7 +49,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so"
-         OLD_RPATH "/gpfs/users/gueroudjia/local/lib64:/gpfs/workdir/gueroudjia/.conda/envs/PhDEnv/lib:/gpfs/users/gueroudjia/.conda/envs/PhDEnv/lib:"
+         OLD_RPATH "/gpfs/users/gueroudjia/local/lib64:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib64/pdi/plugins_1.4.0-alpha.2021-10-19.13015e8/libpdi_deisa_plugin.so")
