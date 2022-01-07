@@ -1,8 +1,13 @@
-# PDI Deisa Plugin
+# DEISA: Dask-Enabled In Situ Analytics  
+
+_**DEISA**_ is a library that ensures coupling MPI simulation codes with Dask analytics. 
+
+**_DEISA_** plugin is built on [PDI Data Interface](https://pdi.dev/master/).
 
 ## Requirements 
 
 _**DEISA**_ as a PDI plugin requires the [PDI Data Interface](https://pdi.dev/master/) to be installed with python support.
+
 _**DEISA**_ requires Dask and [Dask Distributed deisa verion](https://github.com/GueroudjiAmal/distributed) that has been adapted to work with the new introduced concepts in _**DEISA**_ 
 
 ## Installation 
@@ -17,9 +22,6 @@ Or it can be  installed on top of pdi with :
 ```
 
 ## How it works ?
-
-_**DEISA**_ is a library that ensures coupling MPI simulation codes with Dask analytics. 
-**_DEISA_** plugin is built on [PDI Data Interface](https://pdi.dev/master/).
 
 A simulation can be instrumented in PDI to make its internal data available for **_DEISA_**. The plugin retrieves it, creates corresponding keys, and sends it to Dask workers. 
 
