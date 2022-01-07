@@ -14,7 +14,7 @@ _**DEISA**_ requires Dask and [Dask Distributed deisa verion](https://github.com
 
 Check [here](https://github.com/pdidev/spack#deisa) for spack installation.
 
-Or it can be  installed on top of pdi with :
+Or it can be  installed on top of PDI by running:
 
 ```
   cmake -DCMAKE_INSTALL_PREFIX=$HOME/local/  -DPython3_EXECUTABLE=~/.conda/envs/yourenv/bin/python3.8  ../
