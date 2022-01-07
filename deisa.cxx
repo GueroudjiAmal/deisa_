@@ -138,8 +138,8 @@ public:
 		// a python context we fill with exposed variables
 		pydict pyscope = pymod::import("__main__").attr("__dict__");
 		pyscope["dask_interface"] = pymod::import("dask_interface");
-        pymod dask_interface = pymod::import("dask_interface");
-        pyscope["init"]  = dask_interface.attr("init");
+		pymod dask_interface = pymod::import("dask_interface");
+		pyscope["init"]  = dask_interface.attr("init");
 		pyscope["scheduler_info"] = to_python(scheduler_info.to_ref(context()));
 		pyscope["size"] = to_python(size.to_ref(context()));
 		pyscope["rank"] = to_python(rank.to_ref(context()));
@@ -209,7 +209,7 @@ public:
 					pyscope["name"] = deisa_array_name.c_str();
 					try {
 						pybind11::exec(fmt::format("bridge.publish_data({},name,time_step)",deisa_array_name), pyscope);
-                        pyscope[deisa_array_name.c_str()]=NULL;
+						pyscope[deisa_array_name.c_str()]=NULL;
 					} catch ( const std::exception& e ) {
 						cerr << " *** [PDI/Deisa] Error: while publishing data through deisa , caught exception: "<<e.what()<<endl;
 					} catch (...) {
@@ -227,6 +227,5 @@ public:
 }; // class deisa_plugin
 
 } // namespace <anonymous>
-
 
 PDI_PLUGIN(deisa)
