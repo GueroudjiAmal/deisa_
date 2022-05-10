@@ -1,7 +1,0 @@
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/install.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/list_install_components.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/rebuild_cache.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/edit_cache.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/install/strip.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/install/local.dir
-/gpfs/workdir/gueroudjia/pdi/plugins/deisa/build/CMakeFiles/pdi_deisa_plugin.dir
